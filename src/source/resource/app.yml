@@ -1,0 +1,8 @@
+ui:
+  Menu:
+    arrowIcon: i:arrow.png
+    selectionForeground: c:white
+    selectionBackground: c:magenta
+  MenuItem:
+    selectionForeground: c:white
+    selectionBackground: c:cyan

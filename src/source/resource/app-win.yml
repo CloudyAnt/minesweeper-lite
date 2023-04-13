@@ -1,0 +1,4 @@
+ui:
+  ButtonUI: com.sun.java.swing.plaf.windows.WindowsButtonUI
+  TextFieldUI: com.sun.java.swing.plaf.windows.WindowsTextFieldUI
+  LabelUI: com.sun.java.swing.plaf.windows.WindowsLabelUI
