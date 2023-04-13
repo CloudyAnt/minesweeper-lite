@@ -1,7 +1,8 @@
 # Minesweeper
 
-This minesweeper project was began in 2016. I used this project to practice 'refactor', and I hope this project could 
-be an exemplary. 
+A minesweeper game.
+- The **main** branch contains all the tricks.
+- The **lite** branch aims to reduce the memory usage and code amount to make this little game as light as possible. 
 
 ![showcase](src/source/resource/img/showcase.gif)
 
