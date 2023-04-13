@@ -141,7 +141,6 @@ public class GamePanel extends JPanel {
         handler.finalizeTimer();
         gameState = GameState.ENDED;
 
-        controlPanel.activeBgGradient(success ? successColor : failedColor);
         controlPanel.showGameOverInfo(success, success && handler.isNewRecord());
         setBoardOf(success ? BorderType.SUCCESS : BorderType.FAILED);
     }

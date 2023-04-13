@@ -12,7 +12,7 @@ public class Timer {
     public Timer(IntConsumer secondConsumer) {
         this.secondConsumer = secondConsumer;
         state = State.PAUSED;
-        TaskExecutor.execute(this::run, true);
+        TaskExecutor.execute(this::run);
     }
 
     public void start() {

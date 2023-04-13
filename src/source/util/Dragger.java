@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
  * @version 1.0 16/09/02
  */
 public class Dragger {
-    // c stands component, m stands for mouse
+    // c stands for component, m stands for mouse
     private Point cStart;
     private Point mPre;
     private Point mStart;

@@ -3,15 +3,12 @@ package source.component.game;
 import source.Handler;
 import source.constant.Const;
 import source.resource.Resource;
-import source.util.ColorFadeData;
-import source.util.ColorFader;
 
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.HashMap;
 
 import static javax.swing.SwingConstants.CENTER;
 
@@ -19,7 +16,6 @@ public class ControlPanel extends JPanel {
     public static final int CONTROL_PANEL_HEIGHT = 80;
 
     private Handler handler;
-    private ColorFader colorFader;
     private final JLabel infoLabel;
     private final JLabel resetButton;
 
@@ -36,7 +32,6 @@ public class ControlPanel extends JPanel {
         if (instance == null) {
             instance = new ControlPanel();
             instance.handler = Handler.getInstance();
-            instance.colorFader = ColorFader.getInstance();
         }
         return instance;
     }
@@ -122,18 +117,6 @@ public class ControlPanel extends JPanel {
             handler.prepareGame(false);
         }
         GamePanel.getInstance().showGameTimeInfo();
-    }
-
-    private final HashMap<Color, ColorFadeData> bgFadeDataMap = new HashMap<>();
-
-    public void activeBgGradient(Color middleColor) {
-        bgFadeDataMap.computeIfAbsent(middleColor, c ->
-                new ColorFadeData(200, 5, bgc, middleColor, bgc));
-
-        ColorFadeData data = bgFadeDataMap.get(middleColor);
-
-        colorFader.fadeBG(this, data);
-        colorFader.fadeBG(resetButton, data);
     }
 
     public void resize(int gamePanelWidth) {

@@ -5,8 +5,8 @@
     <groupId>cn.itscloudy</groupId>
     <artifactId>Minesweeper</artifactId>
     <version>1.0</version>
-    <name>Minesweeper</name>
-    <description>Self Made Minesweeper</description>
+    <name>minesweeper-lite</name>
+    <description>a light-weight minesweeper</description>
 
     <properties>
         <java.version>1.8</java.version>

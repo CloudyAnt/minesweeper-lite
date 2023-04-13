@@ -2,8 +2,6 @@ package source.component.game;
 
 import source.constant.Const;
 import source.resource.Resource;
-import source.util.ColorFadeData;
-import source.util.ColorFader;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -28,7 +26,6 @@ public class Cell extends JLabel {
     private int nearbyMinesCount;
     private CellState state;
 
-    private final ColorFader colorFader;
     private final GamePanel host;
 
     private static final Border initBorder = new BevelBorder(EtchedBorder.RAISED, Color.gray, Color.darkGray);
@@ -46,12 +43,6 @@ public class Cell extends JLabel {
     private static final Color bg = Color.lightGray;
 
     private static final ArrayList<Cell> chosenCells = new ArrayList<>();
-
-    private static final ColorFadeData bgFadeData = new ColorFadeData(300, 25, bg, Color.white);
-    private static final ColorFadeData signFadeData =
-            new ColorFadeData(200, 25, bg, Color.magenta);
-    private static final ColorFadeData unSignFadeData =
-            new ColorFadeData(200, 25, Color.magenta, bg);
 
     private static final MouseListener mouseListener = new MouseAdapter() {
         @Override
@@ -72,7 +63,6 @@ public class Cell extends JLabel {
         basicSet();
 
         host = GamePanel.getInstance();
-        colorFader = ColorFader.getInstance();
 
         addMouseListener(mouseListener);
     }
@@ -110,10 +100,10 @@ public class Cell extends JLabel {
     }
 
     private void showDiggingResult() {
-        colorFader.fadeBG(chosenCells, bgFadeData);
         chosenCells.forEach(cell -> {
             cell.setIndicatorNumber();
             cell.state = CellState.INDICATED;
+            cell.setBackground(Color.white);
         });
         host.reportClear(chosenCells.size());
     }
@@ -142,7 +132,7 @@ public class Cell extends JLabel {
 
     void switchSignState() {
         signed = !signed;
-        colorFader.fadeBG(this, signed ? signFadeData : unSignFadeData);
+        this.setBackground(signed ? Color.magenta : bg);
         host.addSignedCellsCount(signed ? 1 : -1);
     }
 

@@ -86,8 +86,6 @@ public class Handler {
         }
         // reset game panel
         gamePanel.prepare(resize);
-        // animation
-        controlPanel.activeBgGradient(Color.white);
     }
 
     public void startNewTimer() {
