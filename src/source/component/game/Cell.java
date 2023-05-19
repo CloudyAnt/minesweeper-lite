@@ -195,13 +195,13 @@ public class Cell extends JLabel {
         }
     }
 
+    private static final int[] dirs = new int[]{-1, 0, 1, 0, -1, -1, 1, 1, -1};
+
     private void countNearbyMines() {
-        for (int i = -1; i <= 1; i++) {
-            for (int j = -1; j <= 1; j++) {
-                Cell cell = host.getCell(row + i, col + j);
-                if (cell != null && cell.hasMine) {
-                    nearbyMinesCount++;
-                }
+        for (int di = 0; di < 8; di++) {
+            Cell cell = host.getCell(row + dirs[di], col + dirs[di + 1]);
+            if (cell != null && cell.hasMine) {
+                nearbyMinesCount++;
             }
         }
     }
